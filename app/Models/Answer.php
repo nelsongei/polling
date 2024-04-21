@@ -15,4 +15,7 @@ class Answer extends Model
     public function vote(){
         return $this->hasOne(Vote::class);
     }
+    public function votes(){
+        return $this->hasMany(Vote::class);
+    }
 }

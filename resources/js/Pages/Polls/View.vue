@@ -28,7 +28,6 @@
                 </div>
             </div>
         </div>
-
     </AuthenticatedLayout>
 </template>
 <script>

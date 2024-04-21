@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VoteController;
@@ -19,13 +20,16 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Welcome',[
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
 });
+Route::get('results',[MainPageController::class,'index']);
+Route::get('results/{id}',[MainPageController::class,'getResults'])->name('results');
+Route::get('all_results/{id}',[MainPageController::class,'getPolls']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
