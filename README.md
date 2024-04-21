@@ -14,8 +14,10 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - Run on your terminal composer install
 - run cp .env.example .env
 - php artisan key:generate
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- update .env file and create a database
+- run php artisan migrate
+- run npm install.
+- run php artisan serve.
+- run npm run dev.
+- Open http://127.0.0.1:8000/ on browser and create an account 
 
