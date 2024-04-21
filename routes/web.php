@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,6 +40,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [PollController::class, 'index'])->name('polls.index');
         Route::get('/create', [PollController::class, 'create'])->name('polls.create');
         Route::post('/store', [PollController::class, 'store'])->name('polls.store');
+        Route::get('/view/{id}', [PollController::class, 'view'])->name('polls.view');
+    });
+    Route::group(['prefix'=>'votes'],function (){
+        Route::post('/store',[VoteController::class,'store']);
     });
 });
 

@@ -4,7 +4,6 @@
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Polls</h2>
         </template>
-
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -87,7 +86,15 @@ export default {
             });
             axios.post('/polls/store',formData)
                 .then((response)=>{
-                    console.log(response)
+                    if (response.status===200)
+                    {
+                        this.title="";
+                        this.start_date="";
+                        this.end_date="";
+                        this.questions="";
+                        this.options=""
+                    }
+                    console.log(response.message)
                 })
                 .catch((error)=>{
                     console.log(error)

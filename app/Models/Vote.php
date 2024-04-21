@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Answer extends Model
+class Vote extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'question_id',
-        'option'
+        'answer_id',
+        'user_id',
+        'votes',
+        'question_id'
     ];
-    public function vote(){
-        return $this->hasOne(Vote::class);
+    public function answer()
+    {
+        return $this->belongsTo(Answer::class);
     }
 }
