@@ -34,10 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-Route::group(['prefix'=>'polls'],function (){
-    Route::get('/', [PollController::class, 'index'])->name('polls.index');
-    Route::get('/create', [PollController::class, 'create'])->name('polls.create');
+
+    Route::group(['prefix'=>'polls'],function (){
+        Route::get('/', [PollController::class, 'index'])->name('polls.index');
+        Route::get('/create', [PollController::class, 'create'])->name('polls.create');
+        Route::post('/store', [PollController::class, 'store'])->name('polls.store');
+    });
 });
 
 require __DIR__.'/auth.php';
